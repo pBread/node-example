@@ -1,11 +1,4 @@
 {
-  "main": "src/index.js",
-  "name": "twilio-tester",
-  "scripts": {
-    "dev": "node src/index.js",
-    "start": "node src/express.js"
-  },
-  "version": "1.0.0",
   "dependencies": {
     "@sendgrid/client": "^7.7.0",
     "@sendgrid/mail": "^7.7.0",
@@ -21,5 +14,13 @@
     "@types/node": "^20.6.2",
     "@types/twilio": "^3.19.3",
     "typescript": "^5.2.2"
-  }
+  },
+  "main": "src/index.js",
+  "name": "twilio-tester",
+  "scripts": {
+    "dev": "node src/index.js",
+    "grok": "ngrok http --region=us 3000",
+    "start": "nodemon src/express.js"
+  },
+  "version": "1.0.0"
 }
