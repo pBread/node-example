@@ -11,7 +11,15 @@ const AUTH_TOKEN = process.env.ACCOUNT_SID;
 const twilio = require("twilio");
 const client = twilio(ACCOUNT_SID, AUTH_TOKEN);
 
-async function main() {}
+async function main() {
+  const data = await client.messages.create({
+    to: "",
+    from: "",
+    body: "Your OTP is 8675",
+  });
+
+  console.log(data);
+}
 
 try {
   main();
