@@ -12,6 +12,8 @@ const AUTH_TOKEN = process.env.ACCOUNT_SID;
 const twilio = require("twilio");
 const client = twilio(ACCOUNT_SID, AUTH_TOKEN);
 
+const util = require("./utilities");
+
 async function main() {
   const data = await client.messages.create({
     to: "",

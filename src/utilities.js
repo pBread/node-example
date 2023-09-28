@@ -6,15 +6,26 @@ const fs = require("fs");
 ****************************************************/
 function writeLog(json, prefix = "") {
   const dt = new Date();
+
+  console.log(dt.toDateString());
+
   const fileName =
     prefix +
-    `${dt.getFullYear() - 2000}-${dt.getMonth()}-${dt.getDate()} ` +
+    `${dt.getFullYear() - 2000}-${dt.getMonth() + 1}-${dt.getDate()} ` +
     dt.toLocaleTimeString() +
     ".json";
 
-  const filePath = path.resolve(dir, fileName);
+  const filePath = path.resolve("logs", fileName);
 
-  fs.writeFile(filePath, JSON.stringify(json, null, 2));
+  if (!fs.existsSync("logs")) {
+    fs.mkdir("logs", (err) => {
+      if (err) console.error(err);
+    });
+  }
+
+  fs.writeFile(filePath, JSON.stringify(json, null, 2), (err) => {
+    if (err) console.error(err);
+  });
 }
 
 module.exports.writeLog = writeLog;
