@@ -2,13 +2,15 @@
   "main": "src/index.js",
   "name": "twilio-tester",
   "scripts": {
-    "dev": "node src/index.js"
+    "dev": "node src/index.js",
+    "start": "node src/express.js"
   },
   "version": "1.0.0",
   "dependencies": {
     "@sendgrid/client": "^7.7.0",
     "@sendgrid/mail": "^7.7.0",
     "@twilio/conversations": "^2.4.1",
+    "dotenv": "^16.3.1",
     "node-fetch": "^3.3.2",
     "nodemon": "^3.0.1",
     "twilio": "^4.17.0"
