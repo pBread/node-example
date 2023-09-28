@@ -4,10 +4,11 @@
 ****************************************************/
 
 const dotenv = require("dotenv");
-dotenv.config();
+dotenv.config(); // loads env variables
 
 const ACCOUNT_SID = process.env.ACCOUNT_SID;
 const AUTH_TOKEN = process.env.ACCOUNT_SID;
+const PORT = process.env.PORT || "3000";
 
 const twilio = require("twilio");
 const client = twilio(ACCOUNT_SID, AUTH_TOKEN);
@@ -18,16 +19,16 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// creates a route at http//:localhost:$PORT
+// creates a root route at http//:localhost:$PORT/
 app.use("/", async (req, res) => {
   console.log("req.body\n", req.body);
   console.log("req.query\n", req.query);
   console.log("req.headers\n", req.headers);
+
   res.status(200).send("done");
 });
 
 // start server
-const PORT = process.env.PORT || "3000";
 app.listen(PORT, () => {
   console.log(`Server running on https://localhost:${PORT}`);
 });
