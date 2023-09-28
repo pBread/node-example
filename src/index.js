@@ -1,9 +1,10 @@
 /****************************************************
- Load Environment Variables
- dotenv loads variables from .env and appends them to process.env
+ Execute this file by with the "dev" script, like so
+ npm run dev
 ****************************************************/
+
 const dotenv = require("dotenv");
-dotenv.config();
+dotenv.config(); // loads env variables
 
 const ACCOUNT_SID = process.env.ACCOUNT_SID;
 const AUTH_TOKEN = process.env.ACCOUNT_SID;
